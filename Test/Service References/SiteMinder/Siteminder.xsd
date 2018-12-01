@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="OTA_HotelResNotifRS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Request" type="tns:OTA_HotelResNotifRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="OTA_HotelResNotifRQ">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="HotelReservations" type="tns:ArrayOfHotelReservation" />
+    </xs:sequence>
+    <xs:attribute name="Version" type="xs:string" />
+    <xs:attribute name="EchoToken" type="xs:string" />
+    <xs:attribute name="TimeStamp" type="xs:dateTime" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfHotelReservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="HotelReservation" nillable="true" type="tns:HotelReservation" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HotelReservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="POS" type="tns:POS" />
+      <xs:element minOccurs="0" maxOccurs="1" name="UniqueID" type="tns:UniqueID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RoomStays" type="tns:ArrayOfRoomStay" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ResGlobalInfo" type="tns:ResGlobalInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="POS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Source" type="tns:Source" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Source">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="RequestorID" type="tns:RequestorID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RequestorID">
+    <xs:attribute name="ID" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="UniqueID">
+    <xs:attribute name="Type" type="xs:string" />
+    <xs:attribute name="ID" type="xs:int" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ArrayOfRoomStay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoomStay" nillable="true" type="tns:RoomStay" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RoomStay">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeSpan" type="tns:TimeSpan" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TimeSpan">
+    <xs:attribute name="Start" type="xs:dateTime" use="required" />
+    <xs:attribute name="End" type="xs:dateTime" use="required" />
+  </xs:complexType>
+  <xs:complexType name="ResGlobalInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="TimeSpan" type="tns:TimeSpan" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Total" type="tns:Total" />
+      <xs:element minOccurs="0" maxOccurs="1" name="BasicPropertyInfo" type="tns:BasicPropertyInfo" />
+      <xs:element minOccurs="0" maxOccurs="1" name="HotelReservationIDs" type="tns:HotelReservationIDs" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Total">
+    <xs:attribute name="AmountAfterTax" type="xs:double" use="required" />
+  </xs:complexType>
+  <xs:complexType name="BasicPropertyInfo">
+    <xs:attribute name="HotelCode" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="HotelReservationIDs">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="HotelReservationID" type="tns:HotelReservationID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="HotelReservationID">
+    <xs:attribute name="ResID_Type" type="xs:int" use="required" />
+    <xs:attribute name="ResID_Value" type="xs:string" />
+    <xs:attribute name="ResID_Source" type="xs:string" />
+    <xs:attribute name="ForGuest" type="xs:string" />
+  </xs:complexType>
+  <xs:element name="OTA_HotelResNotifRSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OTA_HotelResNotifRSResult" type="tns:OTA_HotelResNotifRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="OTA_HotelResNotifRS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Success" type="tns:Success" />
+      <xs:element minOccurs="0" maxOccurs="1" name="HotelReservations" type="tns:ArrayOfHotelReservation" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Warnings" type="tns:ArrayOfWarning" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfError" />
+    </xs:sequence>
+    <xs:attribute name="Version" type="xs:string" />
+    <xs:attribute name="EchoToken" type="xs:string" />
+    <xs:attribute name="TimeStamp" type="xs:dateTime" use="required" />
+    <xs:attribute name="ResResponseType" type="xs:string" />
+  </xs:complexType>
+  <xs:complexType name="Success" />
+  <xs:complexType name="ArrayOfWarning">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Warning" nillable="true" type="tns:Warning" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Warning">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Type" type="xs:int" use="required" />
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="RecordID" type="xs:int" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfError">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Error" nillable="true" type="tns:Error" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Error">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <xs:attribute name="Type" type="xs:int" use="required" />
+        <xs:attribute name="Code" type="xs:string" />
+        <xs:attribute name="RecordID" type="xs:int" use="required" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+  <xs:element name="OTA_HotelResNotifRSError">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Request" type="tns:OTA_HotelResNotifRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OTA_HotelResNotifRSErrorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OTA_HotelResNotifRSErrorResult" type="tns:OTA_HotelResNotifRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OTA_HotelResNotifRSWarning">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Request" type="tns:OTA_HotelResNotifRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OTA_HotelResNotifRSWarningResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OTA_HotelResNotifRSWarningResult" type="tns:OTA_HotelResNotifRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OTA_HotelResNotifRSWarningAndError">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Request" type="tns:OTA_HotelResNotifRQ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OTA_HotelResNotifRSWarningAndErrorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="OTA_HotelResNotifRSWarningAndErrorResult" type="tns:OTA_HotelResNotifRS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

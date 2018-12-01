@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SiteMinder.Siteminder" CodeBehind="Siteminder.svc.cs" %>

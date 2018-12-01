@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Siteminder" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:51202/Siteminder.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISiteminder_OTA_HotelResNotifRS_InputMessage">
+    <wsdl:part name="parameters" element="tns:OTA_HotelResNotifRS" />
+  </wsdl:message>
+  <wsdl:message name="ISiteminder_OTA_HotelResNotifRS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OTA_HotelResNotifRSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISiteminder_OTA_HotelResNotifRSError_InputMessage">
+    <wsdl:part name="parameters" element="tns:OTA_HotelResNotifRSError" />
+  </wsdl:message>
+  <wsdl:message name="ISiteminder_OTA_HotelResNotifRSError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OTA_HotelResNotifRSErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISiteminder_OTA_HotelResNotifRSWarning_InputMessage">
+    <wsdl:part name="parameters" element="tns:OTA_HotelResNotifRSWarning" />
+  </wsdl:message>
+  <wsdl:message name="ISiteminder_OTA_HotelResNotifRSWarning_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OTA_HotelResNotifRSWarningResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISiteminder_OTA_HotelResNotifRSWarningAndError_InputMessage">
+    <wsdl:part name="parameters" element="tns:OTA_HotelResNotifRSWarningAndError" />
+  </wsdl:message>
+  <wsdl:message name="ISiteminder_OTA_HotelResNotifRSWarningAndError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:OTA_HotelResNotifRSWarningAndErrorResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISiteminder">
+    <wsdl:operation name="OTA_HotelResNotifRS">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISiteminder/OTA_HotelResNotifRS" message="tns:ISiteminder_OTA_HotelResNotifRS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSResponse" message="tns:ISiteminder_OTA_HotelResNotifRS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OTA_HotelResNotifRSError">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSError" message="tns:ISiteminder_OTA_HotelResNotifRSError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSErrorResponse" message="tns:ISiteminder_OTA_HotelResNotifRSError_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OTA_HotelResNotifRSWarning">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSWarning" message="tns:ISiteminder_OTA_HotelResNotifRSWarning_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSWarningResponse" message="tns:ISiteminder_OTA_HotelResNotifRSWarning_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="OTA_HotelResNotifRSWarningAndError">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSWarningAndError" message="tns:ISiteminder_OTA_HotelResNotifRSWarningAndError_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSWarningAndErrorResponse" message="tns:ISiteminder_OTA_HotelResNotifRSWarningAndError_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISiteminder" type="tns:ISiteminder">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="OTA_HotelResNotifRS">
+      <soap:operation soapAction="http://tempuri.org/ISiteminder/OTA_HotelResNotifRS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OTA_HotelResNotifRSError">
+      <soap:operation soapAction="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OTA_HotelResNotifRSWarning">
+      <soap:operation soapAction="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSWarning" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OTA_HotelResNotifRSWarningAndError">
+      <soap:operation soapAction="http://tempuri.org/ISiteminder/OTA_HotelResNotifRSWarningAndError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Siteminder">
+    <wsdl:port name="BasicHttpBinding_ISiteminder" binding="tns:BasicHttpBinding_ISiteminder">
+      <soap:address location="http://localhost:51202/Siteminder.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
